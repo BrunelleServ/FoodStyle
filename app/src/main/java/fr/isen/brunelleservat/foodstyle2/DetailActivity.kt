@@ -16,7 +16,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityDetailBinding.inflate(layoutInflater) // test
         val dataItem = intent.getSerializableExtra("items") as? Dish
         setContentView(binding.root)
 
