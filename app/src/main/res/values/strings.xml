@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Food Style</string>
+    <string name="main_action">Valider</string>
+    <string name="main_action2">Confirmer</string>
+    <string name="title">Bienvenue</string>
+    <string name="cat1">Entrees</string>
+    <string name="cat2">Plats</string>
+    <string name="cat3">Desserts</string>
+    <string name="home_ble_action">BLE</string>
+    <string name="BLEbtn">Bluetooth</string>
+    <string name="titlePlats"></string>
+
+    <string name="ble_scan_play_title">Lancer le scan BLE</string>
+    <string name="ble_scan_pause_title">Scan BLE en cours...</string>
+</resources>
