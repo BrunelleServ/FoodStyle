@@ -34,6 +34,15 @@ class CategoryAdapter(private val categories: List<Dish>, private val clickListe
         holder.layout.setOnClickListener{
             clickListener.onItemClicked(dish)
         }
+        if (dish.getFirstPicture().isNullOrEmpty()){
+            Picasso.get()
+                .load("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.commentcamarche.net%2Fapplis-sites%2Fservices-en-ligne%2F729-faire-une-recherche-a-partir-d-une-image-sur-google%2F&psig=AOvVaw0lQTqL8i4mwkPL5ie4sDRL&ust=1617218775377000&source=images&cd=vfe&ved=2ahUKEwjFjqjG39jvAhURxuAKHaDPCUUQjRx6BAgAEAc")
+                .into (holder.images)
+        }
+        else {
+            Picasso.get().load(dish.getFirstPicture())
+                .into(holder.images)
+        }
         holder.bind(dish)
     }
 

@@ -14,32 +14,48 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/caroussel" />
 
     <TextView
-        android:id="@+id/detailsDesPlats"
+        android:id="@+id/ingredients"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="18sp"
-        android:textStyle="italic"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titrePrix" />
+
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/caroussel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:fillColor="#FFFFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"
+        tools:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsDesPlats">
+        app:layout_constraintTop_toBottomOf="@+id/ingredients">
 
         <ImageView
             android:id="@+id/boutonMoins"
@@ -58,6 +74,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
+            android:text="@string/quantite"
             android:textAlignment="center"
             android:textSize="36sp" />
 
@@ -77,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -86,9 +103,9 @@
         android:id="@+id/titrePrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titlePlats" />
@@ -98,10 +115,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="€"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/titrePrix"
         app:layout_constraintTop_toBottomOf="@+id/titlePlats" />
 </androidx.constraintlayout.widget.ConstraintLayout>

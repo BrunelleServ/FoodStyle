@@ -2,7 +2,6 @@ package fr.isen.brunelleservat.foodstyle2
 
 
 import android.bluetooth.le.ScanResult
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -10,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.isen.brunelleservat.foodstyle2.databinding.CellBluetoothBinding
 
 
-class DeviceAdapter(private val listDevice: MutableList<ScanResult>) :
-    RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>() {
+class BLEAdapter(private val listDevice: MutableList<ScanResult>) :
+    RecyclerView.Adapter<BLEAdapter.DeviceViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

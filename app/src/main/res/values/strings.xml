@@ -9,6 +9,8 @@
     <string name="home_ble_action">BLE</string>
     <string name="BLEbtn">Bluetooth</string>
     <string name="titlePlats"></string>
+    <string name="quantite">0</string>
+
 
     <string name="ble_scan_play_title">Lancer le scan BLE</string>
     <string name="ble_scan_pause_title">Scan BLE en cours...</string>

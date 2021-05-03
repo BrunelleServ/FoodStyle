@@ -27,7 +27,7 @@ class BLEScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBLEScanBinding
     private var isScanning =false
     private var bluetoothAdapter: BluetoothAdapter? =null
-    private var deviceListAdapter: DeviceAdapter? = null
+    private var deviceListAdapter: BLEAdapter? = null
     private val handler = Handler()
 
     private val scanSettings = ScanSettings.Builder()
@@ -96,7 +96,7 @@ class BLEScanActivity : AppCompatActivity() {
     return packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
     }
     private fun initRecyclerDevice() {
-        deviceListAdapter = DeviceAdapter(mutableListOf())
+        deviceListAdapter = BLEAdapter(mutableListOf())
         binding.bleRecycler.layoutManager = LinearLayoutManager(this)
         binding.bleRecycler.adapter = deviceListAdapter
     }
