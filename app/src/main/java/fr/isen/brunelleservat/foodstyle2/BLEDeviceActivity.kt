@@ -28,12 +28,16 @@ class BLEDeviceActivity : AppCompatActivity() {
         bluetoothGatt = device?.connectGatt(this, false, object: BluetoothGattCallback() {
             override fun onConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int){
                 super.onConnectionStateChange(gatt, status, newState)
+                connectionStateChange(newState, gatt)
 
 
             }
 
             override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
                 super.onServicesDiscovered(gatt, status)
+                gatt?.services?.let {
+                    //mettre a jour l'expandable recycler view
+                }
             }
 
             override fun onCharacteristicRead(gatt: BluetoothGatt?, characteristic: BluetoothGattCharacteristic?, status: Int) {
@@ -44,7 +48,12 @@ class BLEDeviceActivity : AppCompatActivity() {
     }
     private fun connectionStateChange(newState: Int, gatt: BluetoothGatt?){
         BLEConnexionState.getBLEConnexionFromState(newState)?.let {
-            runOnUiThread { binding.deviceStatus.text = getString(R.string.ble_device_status, getString(it.text)) }
+            runOnUiThread {
+                binding.deviceStatus.text = getString(R.string.ble_device_status, getString(it.text))
+            }
+            if(it.state == BLEConnexionState.STATE_CONNECTED.state) {
+                gatt?.discoverServices()
+            }
 
         }
     }

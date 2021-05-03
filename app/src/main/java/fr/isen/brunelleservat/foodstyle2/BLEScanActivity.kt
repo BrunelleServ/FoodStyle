@@ -21,6 +21,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.brunelleservat.foodstyle2.databinding.ActivityBLEScanBinding
 import android.bluetooth.*
+import android.bluetooth.le.BluetoothLeScanner
 
 
 class BLEScanActivity : AppCompatActivity() {
@@ -29,6 +30,7 @@ class BLEScanActivity : AppCompatActivity() {
     private var bluetoothAdapter: BluetoothAdapter? =null
     private var deviceListAdapter: BLEAdapter? = null
     private val handler = Handler()
+
 
     private val scanSettings = ScanSettings.Builder()
         .setScanMode(ScanSettings.SCAN_MODE_BALANCED)
@@ -109,6 +111,7 @@ class BLEScanActivity : AppCompatActivity() {
             binding.PlayPauseView.setImageResource(R.drawable.ic_pause)
             binding.progressBar.isVisible = true
             binding.titleDividerNoCustom.isVisible = false
+            scanLeDevice()
 
         } else{
             binding.BLEScanTitle.text = getString(R.string.ble_scan_play_title)
@@ -120,6 +123,7 @@ class BLEScanActivity : AppCompatActivity() {
     }
     // Stops scanning after 10 seconds.
     private val SCAN_PERIOD: Long = 10000
+
     private fun scanLeDevice() {
         bluetoothAdapter?.bluetoothLeScanner?.let { scanner ->
             if (isScanning) { // Stops scanning after a pre-defined scan period.
