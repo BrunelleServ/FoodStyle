@@ -23,7 +23,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".BLEScanDetailActivity"/>
+        <activity android:name=".BLEDeviceActivity"/>
         <activity android:name=".BLEScanActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".CategoryActivity" />

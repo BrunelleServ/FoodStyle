@@ -57,6 +57,7 @@ class CategoryAdapter(private val categories: List<Dish>, private val clickListe
             prices.text = "${dish.prices.first().price}"
             Picasso.get()
                     .load(dish.getFirstPicture())
+                    .placeholder(R.drawable.pizza)
                     .into(images)
         }
     }
