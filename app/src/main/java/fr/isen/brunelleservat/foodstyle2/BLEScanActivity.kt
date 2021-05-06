@@ -71,7 +71,8 @@ class BLEScanActivity : AppCompatActivity() {
                 startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
 
             }
-            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=PackageManager.PERMISSION_GRANTED -> {
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    !=PackageManager.PERMISSION_GRANTED -> {
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION_LOCATION)
             }
             else -> {
@@ -98,7 +99,11 @@ class BLEScanActivity : AppCompatActivity() {
     return packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
     }
     private fun initRecyclerDevice() {
-        deviceListAdapter = BLEAdapter(mutableListOf())
+        deviceListAdapter = BLEAdapter(mutableListOf()){
+            val intent = Intent(this, BLEDeviceActivity::class.java)
+            intent.putExtra("device", it )
+            startActivity(intent)
+        }
         binding.bleRecycler.layoutManager = LinearLayoutManager(this)
         binding.bleRecycler.adapter = deviceListAdapter
     }

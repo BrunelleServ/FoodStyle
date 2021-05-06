@@ -12,16 +12,17 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:hardwareAccelerated="true"
-        android:largeHeap="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".BLEDeviceActivity"/>
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".BLEDetailActivity"></activity>
+        <activity android:name=".BLEDeviceActivity" />
         <activity android:name=".BLEScanActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".CategoryActivity" />
