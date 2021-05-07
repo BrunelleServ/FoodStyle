@@ -41,23 +41,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BLEScanTitle" />
+
     <View
+        android:id="@+id/titleDividerNoCustom"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:id="@+id/titleDividerNoCustom"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="45dp"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/BLEScanTitle"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/BLEScanTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bleRecycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleDividerNoCustom" />
+
+    <SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="417dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/titleDividerNoCustom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PlayPauseView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

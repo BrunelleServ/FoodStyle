@@ -19,6 +19,11 @@
     <string name="ble_device_status_disconnected">Déconnecté</string>
     <string name="ble_status_connected">Connecté</string>
     <string name="ble_device_status_disconnecting">Déconnexion en cours</string>
+    <string name="entrerValeur">Entrez une valeur</string>
+    <string name="characteristicRead">LIRE</string>
+    <string name="characteristicWrite">ECRIRE</string>
+    <string name="characteristicNotify">NOTIFIER</string>
+
 
 
 </resources>

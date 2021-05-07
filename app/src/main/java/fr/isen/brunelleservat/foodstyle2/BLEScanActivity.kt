@@ -30,6 +30,8 @@ class BLEScanActivity : AppCompatActivity() {
     private var bluetoothAdapter: BluetoothAdapter? =null
     private var deviceListAdapter: BLEAdapter? = null
     private val handler = Handler()
+    private var bluetoothScanner: BluetoothLeScanner? = bluetoothAdapter?.bluetoothLeScanner
+
 
 
     private val scanSettings = ScanSettings.Builder()
@@ -49,6 +51,7 @@ class BLEScanActivity : AppCompatActivity() {
 
         binding.PlayPauseView.setOnClickListener {
             togglePlaypauseAction()
+            isDeviceHasBLESupport()
         }
         binding.BLEScanTitle.setOnClickListener {
             togglePlaypauseAction()
@@ -77,7 +80,9 @@ class BLEScanActivity : AppCompatActivity() {
             }
             else -> {
                 //on peut pas faire du BLE
-                Log.d("ScanDevices", "onRequestPermissionsResult(not PERMISSION")
+
+                bluetoothScanner = bluetoothAdapter?.bluetoothLeScanner
+                initRecyclerDevice()
             }
         }
     }
@@ -149,8 +154,14 @@ class BLEScanActivity : AppCompatActivity() {
     private val leScanCallback: ScanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
-            deviceListAdapter?.addDevice(result)
-            deviceListAdapter?.notifyDataSetChanged()
+            if (binding.searchBar.queryHint == result.device.name) {
+                deviceListAdapter?.addDevice(result)
+                deviceListAdapter?.notifyDataSetChanged()
+            }
+            else {
+                deviceListAdapter?.addDevice(result)
+                deviceListAdapter?.notifyDataSetChanged()
+            }
 
         }
     }
